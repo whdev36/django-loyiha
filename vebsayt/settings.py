@@ -102,12 +102,28 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Statik fayllar (CSS, JavaScript, Rasmlar)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'root')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+
+# Media fayllar (Rasmlar, Fayllar, h.k.)
+# https://github.com/whdev36/django-tutorial/blob/main/config/settings.py
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Autentifikatsiya konfiguratsiyasi
+# https://github.com/whdev36/django-tutorial/blob/main/config/settings.py
+AUTH_USER_MODEL = 'sayt.Hisob'
+LOGIN_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = ''

@@ -1,1 +1,27 @@
-salom dunyo!
+{% extends 'master.html' %}
+
+{% block title %}Bosh Sahifa{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="display-4">E-Commerce Do'koniga Xush Kelibsiz!</h1>
+    <p class="lead">Bizning eng so‘nggi mahsulotlarni ko‘rib chiqing va buyurtma bering.</p>
+    <a href="" class="btn btn-primary btn-lg">Mahsulotlarni Ko‘rish</a>
+</div>
+
+<!-- Eng so'nggi mahsulotlar -->
+<div class="row mt-5">
+    {% for mahsulot in mahsulotlar %}
+    <div class="col-md-4">
+        <div class="card">
+            <img src="{{ mahsulot.rasm.url }}" class="card-img-top" alt="{{ mahsulot.nom }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ mahsulot.nom }}</h5>
+                <p class="card-text">{{ mahsulot.narx }} so'm</p>
+                <a href="" class="btn btn-success">Batafsil</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
